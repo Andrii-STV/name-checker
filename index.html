@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Name Hint</title>
-    <link rel="stylesheet" href="/root/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
     <script>
         function showHint(str) {
@@ -19,7 +19,7 @@
                 document.getElementById("txtHint").innerHTML = this.responseText;
               }
             };
-            xmlhttp.open("GET", "/root/gethint.php?q=" + str, true);
+            xmlhttp.open("GET", "gethint.php?q=" + str, true);
             xmlhttp.send();
           }
         }
