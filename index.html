@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Name Hint</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script>
+        function showHint(str) {
+          if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+          } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+            };
+            xmlhttp.open("GET", "gethint.php?q=" + str, true);
+            xmlhttp.send();
+          }
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Welcome to the Name Checker!</h2>
+        <div class="box">
+            <p class="title"><b>Start typing a name in the input field below:</b></p>
+            
+            <form action="">
+                <div class="form gap">
+
+                    <div class="form__item">
+                        <label for="fname">First name:</label>
+                    </div>
+
+                    <div class="form__item">
+                        <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+                    </div>
+
+                </div>
+            </form> 
+
+            <div class="form">
+            <div class="form__item">Suggestions:</div>
+            <div class="form__item"><span id="txtHint"></span></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
